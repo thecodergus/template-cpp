@@ -1,0 +1,4 @@
+src/cache/
+*.o
+*.exe
+main

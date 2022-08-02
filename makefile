@@ -8,15 +8,15 @@ CCFLAGS=$(DEBUG) $(OPT) $(WARN) $(PTHREAD) -pipe
 LD=g++
 LDFLAGS=$(PTHREAD) -export-dynamic
 NAME=main
-OBJS=$(NAME).o
+OBJS=src/$(NAME).o
 all: $(OBJS)
-        $(LD) -o $(TARGET) $(OBJS) $(LDFLAGS)
+	$(LD) -o $(TARGET) $(OBJS) $(LDFLAGS)
 
-main.o: main.cpp
-        $(CC) -c $(CCFLAGS) main.cpp -o main.o
+main.o: src/main.cpp
+	$(CC) -c $(CCFLAGS) src/main.cpp -o src/main.o
 
 clean:
-        rm -f *.o
+	rm -f *.o
 
 exec:
-        ./$(NAME)
+	./$(NAME)
