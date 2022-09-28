@@ -16,8 +16,9 @@
 #include <cassert>
 
 #define F(x) for(int i = 0; i < x; i++)
-#define pb push_back
 #define Feach(x) for(auto item : x)
+#define Fiter(t, x) for(t::iterator i = x.begin(); i < x.end(); i++)
+#define pb push_back
 #define mp make_pair
 #define mt make_tuple
 #define fi first
