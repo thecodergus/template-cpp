@@ -20,6 +20,8 @@
 #define Feach(x) for(auto item : x)
 #define mp make_pair
 #define mt make_tuple
+#define fi first
+#define se second
 
 using namespace std;
 const double PI = 3.14159265358979323846;
@@ -30,6 +32,8 @@ typedef long long int lli;
 typedef long double ld;
 typedef unsigned int uint;
 typedef vector<int> vi;
+typedef vector<bool> vb;
+typedef vector<string> vs;
 typedef pair<int, int> ii;
 
 int main(){
