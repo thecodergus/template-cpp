@@ -16,7 +16,7 @@ main.o: src/main.cpp
 	$(CC) -c $(CCFLAGS) src/main.cpp -o src/main.o
 
 clean:
-	rm -f *.o
+	rm -f src/*.o
 
 exec:
 	./$(NAME)
