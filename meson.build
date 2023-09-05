@@ -11,23 +11,15 @@ if cc.get_id() == 'gcc' or cc.get_id() == 'clang'
 endif
 
 
-# Importa as dependências e pastas de cabeçalho
-inc = include_directories('include', '/usr/local/include')
-# aravis_dep = dependency('aravis-0.8', version : '>=0.8.0')
-# opencv_dep = dependency('opencv4')
-
-# Importa os arquivos de uso comum
-arr_files = files(
-#   'src/camera.cpp',
-#   'src/utils.cpp',
-#   'src/pixel_format.cpp'
+app_src = files(
+  'src/main.cpp'
 )
-
-app_src = files('src/main.cpp')
 
 # Aplicação Central
 executable('main', 
-    sources : common_src + app_src, 
+    sources : [
+      app_src
+    ], 
     include_directories : inc, 
     dependencies: [
 
