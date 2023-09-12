@@ -10,7 +10,10 @@ if cc.get_id() == 'gcc' or cc.get_id() == 'clang'
   cpp_args += '-Wno-deprecated'
 endif
 
+# Importa as dependências e pastas de cabeçalho
+inc = include_directories('include', '/usr/local/include')
 
+# Importa os arquivos de código fonte
 app_src = files(
   'src/main.cpp'
 )
