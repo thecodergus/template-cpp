@@ -3,8 +3,8 @@
 NOME_PROJETO="main" # Nome do projeto
 
 # Configurações
-export CXX=clang++ # Escolhendo o compilador
-export CC=clang # Escolhendo o compilador
+export CXX=g++ # Escolhendo o compilador
+export CC=gcc # Escolhendo o compilador
 export CMAKE_PREFIX_PATH="/opt/vcpkg"
 
 PASTA="build-clang"
