@@ -7,7 +7,7 @@ export CXX=g++ # Escolhendo o compilador
 export CC=gcc # Escolhendo o compilador
 export CMAKE_PREFIX_PATH="/opt/vcpkg"
 
-PASTA="build-clang"
+PASTA="build-$CXX"
 
 # Verificando se a pasta existe
 if [ -d "$PASTA" ]; then
