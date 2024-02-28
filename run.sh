@@ -1,6 +1,6 @@
 #! /bin/bash
 
-NOME_PROJETO="main" # Nome do projeto
+NOME_PROJETO="projeto" # Nome do projeto
 
 # Configurações
 export CXX=g++ # Escolhendo o compilador
