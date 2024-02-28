@@ -18,6 +18,8 @@ app_src = files(
   'src/main.cpp'
 )
 
+# Local para importar as dependencias
+
 # Aplicação Central
 executable('main', 
     sources : [
