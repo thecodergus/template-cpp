@@ -6,7 +6,7 @@ cpp_args = []
 
 # Adiciona flags de compilação para o GCC e Clang
 cc = meson.get_compiler('cpp')
-if cc.get_id() == 'gcc' or cc.get_id() == 'clang'
+if cc.get_id() == 'g++' or cc.get_id() == 'clang++'
   cpp_args += '-Wno-deprecated'
 endif
 

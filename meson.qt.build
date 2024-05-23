@@ -14,19 +14,14 @@ cc = meson.get_compiler('cpp')
 
 # Verifica se o compilador em uso é GCC ou Clang.
 # Se for, adiciona a flag '-Wno-deprecated' para desativar avisos sobre recursos depreciados.
-if cc.get_id() == 'gcc' or cc.get_id() == 'clang'
+if cc.get_id() == 'g++' or cc.get_id() == 'clang++'
   cpp_args += '-Wno-deprecated'
 endif
 
 # Define os diretórios que contêm arquivos de cabeçalho (.h, .hpp) que serão incluídos no projeto.
-inc = include_directories('include', '/usr/local/include', 'include/genicam')
+inc = include_directories('include', '/usr/local/include')
 
 # Define as dependências externas necessárias para o projeto e verifica se estão instaladas.
-aravis_dep = dependency('aravis-0.8', required : true)
-opencv_dep = dependency('opencv4', required : true)
-opengl_dep = dependency('gl', required : true)
-boost_dep = dependency('boost', required : true)
-protobuf_dep = dependency('protobuf', required : true)
 
 # Importa o módulo Qt5 do Meson e define as subdependências necessárias dentro do Qt5.
 qt5 = import('qt5')
@@ -39,14 +34,7 @@ qt5_dep = dependency('qt5', modules: [
 
 # Compila os arquivos de cabeçalho que necessitam do processamento do MOC (Meta-Object Compiler) do Qt5.
 moc_files = qt5.compile_moc(headers : [
-              'include/app_ui.hpp',
-              'include/pages/ligar_cameras.hpp',
-              'include/pages/inserir_dados.hpp',
-              'include/pages/visualizacao.hpp',
-              'include/components/camera_widget.hpp',
-              'include/components/informações_widget.hpp',
-              'include/components/ultimo_defeito_frame.hpp',
-              'include/components/botoes_visualizacao_frame.hpp',
+                # arquivos de cabeçalho que usei Qt
               ],
               extra_args: ['-DMAKES_MY_MOC_HEADER_COMPILE'],
               include_directories: inc,
@@ -55,24 +43,12 @@ moc_files = qt5.compile_moc(headers : [
 
 # Lista de arquivos de código-fonte relacionados às páginas e componentes da interface do usuário Qt.
 qt_pages = files(
-  'src/app_ui.cpp',
-  'src/pages/ligar_cameras.cpp',
-  'src/pages/inserir_dados.cpp',
-  'src/pages/visualizacao.cpp',
-  'src/components/camera_widget.cpp',
-  'src/components/informações_widget.cpp',
-  'src/components/ultimo_defeito_frame.cpp',
-  'src/components/botoes_visualizacao_frame.cpp',
+  # Arquivos source que usei Qt
 )
 
 # Lista de arquivos de código-fonte que são comuns e reutilizados em várias partes do projeto.
 common_src = files(
-  'src/genicam/camera.cpp',
-  'src/genicam/utils.cpp',
-  'src/genicam/pixel_format.cpp',
-  'src/data.cpp',
-  'src/proto/data_struct.pb.cc',
-  'src/store.cpp'
+  # Arquivos qualquer sem Qt
 )
 
 # Arquivo de código-fonte principal que contém a função 'main' do programa.
@@ -88,10 +64,7 @@ executable('santista_2',
     ], 
     include_directories : inc, 
     dependencies: [
-      aravis_dep,
-      opencv_dep,
       qt5_dep,
-      protobuf_dep
     ],
     install: true,  # Indica que o executável deve ser instalado no sistema.
     cpp_args : cpp_args  # Utiliza os argumentos de compilação definidos anteriormente.
