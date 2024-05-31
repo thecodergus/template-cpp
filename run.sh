@@ -9,7 +9,7 @@ if ! pip3 show meson &> /dev/null; then
     source ~/.bashrc
 fi
 
-NOME_PROJETO="projeto" # Nome do projeto
+NOME_PROJETO="main" # Nome do projeto
 
 # Configurações
 export CXX=g++ # Escolhendo o compilador
