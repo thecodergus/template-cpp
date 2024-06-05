@@ -4,3 +4,4 @@ src/cache/
 main
 Programa
 **/build*
+.vscode/
